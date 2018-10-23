@@ -1,0 +1,9 @@
+#! /usr/bin/env python3
+import pyperclip
+s = '''#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+   return 0;
+}'''
+pyperclip.copy(s)
