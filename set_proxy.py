@@ -18,3 +18,8 @@ with open('apt.conf','w') as f:
     verbs = ['http','https','ftp']
     for verb in verbs:
         f.write(f'Acquire::{verb}::proxy "{verb}://{username}:{password}@{address}:{port}/";\n')
+os.chdir('/etc')
+with open('etc/environment','a') as f:
+    verbs = ['http','https','ftp']
+    for verb in verbs:
+        f.write(f'{verb}_proxy={verb}://{username}:{password}@{address}:{port}/\n')
