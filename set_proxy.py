@@ -14,6 +14,7 @@ with open('/etc/apt/apt.conf','w') as f:
     verbs = ['http','https','ftp']
     for verb in verbs:
         f.write(f'Acquire::{verb}::proxy "{verb}://{username}:{password}@{address}:{port}/";\n')
+
 #For docker
 os.makedirs('/etc/systemd/system/docker.service.d',exist_ok=True)
 os.makedirs('/etc/default/',exist_ok=True)
@@ -31,6 +32,10 @@ Environment="HTTPS_PROXY=http://{address}:{port}"
 Environment="NO_PROXY=localhost,127.0.0.1"''')
 
 #For git etc...
+os.system('git config --global http.proxy http://{username}:{password}@{address}:{port}')
+os.system('git config --global https.proxy https://{username}:{password}@{address}:{port}')
+
+#For environment variables
 content = []
 with open('/etc/environment') as f:
     content = f.readlines()
