@@ -60,8 +60,8 @@ def unset_proxy():
                         f.write(line)
         except Exception as e:
             pass
-    os.system('git config --unset http.proxy')
-    os.system('git config --unset http.proxy')
+    os.system('git config --unset --global http.proxy')
+    os.system('git config --unset --global http.proxy')
 
 try:
     if sys.argv[1] == 'set':
