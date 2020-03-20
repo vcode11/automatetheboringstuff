@@ -33,8 +33,8 @@ def set_proxy():
     Environment="NO_PROXY=localhost,127.0.0.1"''')
 
     #For git etc...
-    os.system('git config --global http.proxy http://{username}:{password}@{address}:{port}')
-    os.system('git config --global https.proxy https://{username}:{password}@{address}:{port}')
+    os.system(f'git config --global http.proxy http://{username}:{password}@{address}:{port}')
+    os.system(f'git config --global https.proxy https://{username}:{password}@{address}:{port}')
 
     #For environment variables
     content = []
